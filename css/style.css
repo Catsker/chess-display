@@ -1,0 +1,438 @@
+@charset "UTF-8";
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background: #302E2B;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  background: inherit;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+:root {
+  --dark-cells: rgb(106, 155, 65);
+  --white-cells: rgb(243, 243, 244);
+  --dark-cells-active: rgb(181, 205, 58);
+  --white-cells-active: rgb(249, 249, 148);
+}
+
+.board-cover {
+  width: 37%;
+  display: flex;
+  flex-direction: column;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  border: 1px black solid;
+  position: relative;
+  margin-block: 10px;
+  cursor: grabbing;
+}
+.board ul {
+  display: flex;
+  flex-direction: row;
+}
+.board li {
+  aspect-ratio: 1;
+  width: 12.5%;
+  display: block;
+  position: relative;
+}
+.board .odd li:nth-child(odd),
+.board .even li:nth-child(even) {
+  background: var(--dark-cells);
+}
+.board .even li:nth-child(odd),
+.board .odd li:nth-child(even) {
+  background: var(--white-cells);
+}
+
+.wpawn::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/white/pawn.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wbichep::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/white/bichep.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wknight::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/white/knight.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wrook::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/white/rook.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wqueen::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/white/queen.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wking::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/white/king.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wkingChecked::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/white/king.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(-5px -5px 10px red) drop-shadow(5px 5px 10px red);
+}
+
+.bpawn::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/black/pawn.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bbichep::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/black/bichep.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bknight::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/black/knight.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.brook::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/black/rook.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bqueen::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/black/queen.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bking::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/black/king.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bkingChecked::after {
+  content: "";
+  cursor: grab;
+  background-image: url("../svg/black/king.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(-5px -5px 10px red) drop-shadow(5px 5px 10px red);
+}
+
+.darkcell {
+  background-color: var(--dark-cells-active) !important;
+}
+
+.whitecell {
+  background-color: var(--white-cells-active) !important;
+}
+
+#cursor {
+  aspect-ratio: 1;
+  width: 12.5%;
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  cursor: grabbing;
+}
+
+.player {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.playerName {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 22px;
+  background: inherit;
+}
+
+.ava {
+  width: 10%;
+  aspect-ratio: 1;
+  background: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.drop-zone {
+  background: url("../svg/avatar-default-svgrepo-com.svg") no-repeat center center;
+  background-size: 80%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.drop-zone:hover {
+  border-color: #999;
+}
+
+.drop-zone.dragover {
+  background-color: #e1e1e1;
+  border-color: #999;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: none;
+}
+
+.custom-cursor {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><circle cx='8' cy='8' r='8' fill='rgb(48, 46, 43)'/></svg>"), auto !important;
+}
+
+.reverseVert {
+  flex-direction: column-reverse !important;
+}
+
+.reverseHor {
+  flex-direction: row-reverse !important;
+}
+
+.none {
+  display: none !important;
+}
+
+.bpawnchoise, .wpawnchoise {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  z-index: 10;
+  border-radius: 10px;
+}
+.bpawnchoise button, .wpawnchoise button {
+  display: block;
+  border: 1px solid gray;
+}
+.bpawnchoise button:hover, .wpawnchoise button:hover {
+  background-color: gray;
+}
+.bpawnchoise img, .wpawnchoise img {
+  width: 60%;
+}/*# sourceMappingURL=style.css.map */
